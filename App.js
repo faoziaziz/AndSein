@@ -25,6 +25,12 @@ export default class App extends Component<Props> {
         <TouchableHighlight style={[btn, btnPrimary]}>
           <Text>Assekk</Text>
         </TouchableHighlight>
+        <TouchableHighlight style={[buttonStyles.core, buttonStyles.spacer]}>
+          <Text>default normal</Text>
+        </TouchableHighlight>
+        <TouchableHighlight style={[buttonStyles.core, buttonStyles.hairlineBorder, buttonStyles.spacer]}>
+          <Text>default hairline</Text>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -74,4 +80,26 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+});
+const buttonStyles = StyleSheet.create({
+  core: {
+    borderStyle: 'solid',
+    borderColor: '#d5d5d5',
+    borderWidth: 1,
+    backgroundColor: '#eee',
+    borderRadius: 3,
+    padding: 3,
+    paddingLeft: 5,
+    paddingRight: 5
+  },
+  primary: {
+    backgroundColor: '#60b044',
+    borderColor: '#355f27'
+  },
+  hairlineBorder:{
+    borderWidth: StyleSheet.hairlineWidth
+  },
+  spacer: {
+    marginBottom:10
+  }
 });
