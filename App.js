@@ -7,7 +7,15 @@
  */
 
 import React, {Component} from 'react';
-import {TouchableHighlight, Platform, StyleSheet, Text, View} from 'react-native';
+import gaya from './komponen/anggun';
+import forYou from './komponen/crazy';
+
+import {
+  TouchableHighlight,
+  TouchableOpacity,
+  Platform,
+  StyleSheet,
+  Text, View} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -16,21 +24,26 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+var kamu = new forYou();
+kamu.heart('Aziz Ganteng');
+
 type Props = {};
+
 export default class App extends Component<Props> {
   render() {
     return (
       <View style={viewStyles}>
-        <Text style={textStyles}>and Dasein</Text>
-        <TouchableHighlight style={[btn, btnPrimary]}>
-          <Text>Assekk</Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={[buttonStyles.core, buttonStyles.spacer]}>
-          <Text>default normal</Text>
-        </TouchableHighlight>
+
         <TouchableHighlight style={[buttonStyles.core, buttonStyles.hairlineBorder, buttonStyles.spacer]}>
           <Text>default hairline</Text>
         </TouchableHighlight>
+        <TouchableOpacity onPress={()=>console.log('Pressed')}>
+          <View>
+            <Text>{gaya.Asek}</Text>
+
+          </View>
+        </TouchableOpacity>
+        <Text>{kamu.nama}</Text>
       </View>
     );
   }
