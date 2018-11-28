@@ -9,13 +9,15 @@
 import React, {Component} from 'react';
 import gaya from './komponen/anggun';
 import forYou from './komponen/crazy';
+//import BoxModelDemo from './komponen/BoxModelDemo';
 
 import {
   TouchableHighlight,
   TouchableOpacity,
   Platform,
   StyleSheet,
-  Text, View} from 'react-native';
+  Text,
+  View} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -32,19 +34,13 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={viewStyles}>
-
-        <TouchableHighlight style={[buttonStyles.core, buttonStyles.hairlineBorder, buttonStyles.spacer]}>
-          <Text>default hairline</Text>
-        </TouchableHighlight>
-        <TouchableOpacity onPress={()=>console.log('Pressed')}>
-          <View>
-            <Text>{gaya.Asek}</Text>
-
-          </View>
-        </TouchableOpacity>
-        <Text>{kamu.nama}</Text>
+      <View style={styles.main}>
+        <Text>Aplikasi sampah</Text>
+        <Text style={styles.content}>gue </Text>
+        <Text style={styles.content}>ganteng </Text>
+        <Text style={styles.content}>beud</Text>
       </View>
+
     );
   }
 }
@@ -71,16 +67,17 @@ const btn={
   paddingRight: 5
 };
 
+
 const btnPrimary={
   backgroundColor: '#60b044',
   borderColor: '#5ca941'
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
@@ -93,6 +90,29 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  main:{
+    flex: 1,
+    paddingVertical:20,
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
+  content:{
+    padding: 10,
+    margin: 10,
+    backgroundColor: '#ef4c',
+    width: 125,
+    height: 125,
+    borderWidth: 1,
+    borderColor: 'red',
+    textAlign: 'center'
+  },
+  item: {
+    backgroundColor: 'lightgoldenrodyellow',
+    borderWidth: 1,
+    borderColor: 'goldenrod',
+    height: 150,
+    width: 1
+  }
 });
 const buttonStyles = StyleSheet.create({
   core: {
@@ -114,5 +134,19 @@ const buttonStyles = StyleSheet.create({
   },
   spacer: {
     marginBottom:10
+  }
+
+});
+
+const Bold=({children})=> <Text
+style={boldTextStyles.text}>{children}</Text>;
+
+Bold.propTypes={
+  children: React.PropTypes.node.isRequired
+};
+
+const boldTextStyles=StyleSheet.create({
+  text: {
+    fontWeight: '600'
   }
 });
